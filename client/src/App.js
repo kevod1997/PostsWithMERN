@@ -1,10 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import HomePage from "./pages/HomePage";
+import PostForm from "./pages/PostForm";
+import { Routes, Route } from "react-router-dom";
+import NotFoundPage from "./pages/NotFoundPage";
+import { PostProvider } from "./context/PostContext";
+import {Toaster} from "react-hot-toast";
+
 
 function App() {
   return (
     <>
-      <div>Hello world</div>
+      <div className="bg-neutral-900 min-h-screen flex items-center">
+        <div className="px-10 container m-auto">
+          <PostProvider>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/new" element={<PostForm />} />
+              <Route path="/posts/:id" element={<PostForm />} />
+              <Route path="*" element={<NotFoundPage />} />
+            </Routes>
+            <Toaster/>
+          </PostProvider>
+        </div>
+      </div>
     </>
   );
 }

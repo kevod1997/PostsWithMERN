@@ -10,6 +10,6 @@ router.put("/posts/:id", updatePost)
 
 router.delete("/posts/:id", deletePost)
 
-router.get("/post/:id", getPost)
+router.get("/posts/:id", getPost)
 
 export default router
